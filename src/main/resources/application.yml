@@ -10,20 +10,18 @@ spring:
   application:
     name: config-server
   profiles:
-    active: ${SPRING_PROFILES_ACTIVE:local}
+    active: ${SPRING_PROFILES_ACTIVE}
   cloud:
     config:
       server:
-        # Native file system configuration (recommended for development)
         native:
-          search-locations: 
+          search-locations:
             - classpath:/config/
             - file:./config/
             - file:../config/
-        # Git configuration (recommended for production)
         git:
-          uri: ${CONFIG_GIT_URI:https://github.com/your-org/easyshop-config.git}
-          search-paths: 
+          uri: ${CONFIG_GIT_URI}
+          search-paths:
             - config
             - config/*
           default-label: main
@@ -38,8 +36,8 @@ spring:
             multiplier: 1.1
   security:
     user:
-      name: ${CONFIG_SERVER_USER:configuser}
-      password: ${CONFIG_SERVER_PASSWORD:configpass}
+      name: ${CONFIG_SERVER_USER}
+      password: ${CONFIG_SERVER_PASSWORD}
 
 # Management endpoints configuration
 management:
@@ -61,9 +59,9 @@ logging:
   pattern:
     level: "%5p [trace:%X{traceId}]"
   level:
-    org.springframework.cloud.config: ${LOG_LEVEL_ORG_SPRINGFRAMEWORK_CLOUD_CONFIG:INFO}
-    com.easyshop: ${LOG_LEVEL_COM_EASYSHOP:INFO}
-    org.springframework.security: ${LOG_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY:WARN}
+    org.springframework.cloud.config: ${LOG_LEVEL_ORG_SPRINGFRAMEWORK_CLOUD_CONFIG}
+    com.easyshop: ${LOG_LEVEL_COM_EASYSHOP}
+    org.springframework.security: ${LOG_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY}
 
 # Config Server specific settings
 config:
