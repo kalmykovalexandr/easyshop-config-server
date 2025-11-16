@@ -59,9 +59,9 @@ logging:
   pattern:
     level: "%5p [trace:%X{traceId}]"
   level:
-    org.springframework.cloud.config: ${LOG_LEVEL_ORG_SPRINGFRAMEWORK_CLOUD_CONFIG}
-    com.easyshop: ${LOG_LEVEL_COM_EASYSHOP}
-    org.springframework.security: ${LOG_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY}
+    org.springframework.cloud.config: ${LOG_LEVEL_ORG_SPRINGFRAMEWORK_CLOUD_CONFIG:INFO}
+    com.easyshop: ${LOG_LEVEL_COM_EASYSHOP:INFO}
+    org.springframework.security: ${LOG_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY:WARN}
 
 # Config Server specific settings
 config:
